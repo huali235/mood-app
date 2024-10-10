@@ -21,7 +21,6 @@ model User {
 
   clerkId String         @unique
   email   String         @unique
-  name    String
   entries JournalEntry[]
 }
 
