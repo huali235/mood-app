@@ -11,6 +11,9 @@ const getEntry = async (id) => {
         id,
       },
     },
+    include: {
+      analysis: true,
+    },
   })
 
   return entry
@@ -18,11 +21,12 @@ const getEntry = async (id) => {
 
 const EntryPage = async ({ params }) => {
   const entry = await getEntry(params.id)
+  const { summary, subject, mood, negative, color } = entry?.analysis
   const analysisData = [
-    { name: 'Summary', value: '' },
-    { name: 'Subject', value: '' },
-    { name: 'Mood', value: '' },
-    { name: 'Negative', value: 'false' },
+    { name: 'Summary', value: summary },
+    { name: 'Subject', value: subject },
+    { name: 'Mood', value: mood },
+    { name: 'Negative', value: negative ? 'True' : 'False' },
   ]
   return (
     <>
@@ -31,7 +35,12 @@ const EntryPage = async ({ params }) => {
           <Editor entry={entry} />
         </div>
         <div className="w-full lg:w-1/3 bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Analysis</h2>
+          <h2
+            className="text-xl font-semibold mb-4"
+            style={{ backgroundColor: color }}
+          >
+            Analysis
+          </h2>
           <div>
             <ul>
               {analysisData.map((item) => (
