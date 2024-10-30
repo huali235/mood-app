@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
         <nav className="flex-1 p-4">
           <ul>
             <li className="mb-2">
-              <a href="#" className="block p-2 hover:bg-gray-700">
+              <a href="/journal" className="block p-2 hover:bg-gray-700">
                 Dashboard
               </a>
             </li>
