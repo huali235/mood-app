@@ -21,7 +21,6 @@ const getJournalEntries = async () => {
 
 const JournalPage = async () => {
   const entries = await getJournalEntries()
-  console.log('entries', entries)
   return (
     <div>
       <h2 className="text-3xl mb-5">Journal</h2>
