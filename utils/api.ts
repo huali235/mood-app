@@ -35,3 +35,20 @@ export const createNewEntry = async () => {
     return null
   }
 }
+
+export const askQuestion = async (question) => {
+  const res = await fetch(
+    new Request(createURL(`/api/question`), {
+      method: 'POST',
+      body: JSON.stringify({ question }),
+    })
+  )
+
+  if (res.ok) {
+    const data = await res.json()
+    console.log(data.data)
+    return data.data
+  } else {
+    throw new Error('Something went wrong on API server!')
+  }
+}
