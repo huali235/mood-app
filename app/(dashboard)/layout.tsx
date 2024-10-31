@@ -14,8 +14,8 @@ const DashboardLayout = ({ children }) => {
               </a>
             </li>
             <li className="mb-2">
-              <a href="#" className="block p-2 hover:bg-gray-700">
-                Settings
+              <a href="/history" className="block p-2 hover:bg-gray-700">
+                History
               </a>
             </li>
             <li className="mb-2">

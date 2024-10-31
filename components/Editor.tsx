@@ -6,8 +6,14 @@ import { useState } from 'react'
 const Editor = ({ entry }) => {
   const [content, setContent] = useState(entry.content)
   const [isSaving, setIsSaving] = useState(false)
-  const [analysis, setAnalysis] = useState(entry.analysis)
-  const { summary, subject, mood, negative, color } = analysis
+  const [analysis, setAnalysis] = useState(entry.analysis || {})
+  const {
+    summary = '',
+    subject = '',
+    mood = '',
+    negative = false,
+    color = '',
+  } = analysis
   const analysisData = [
     { name: 'Summary', value: summary },
     { name: 'Subject', value: subject },

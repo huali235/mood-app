@@ -28,11 +28,11 @@ export const createNewEntry = async () => {
       return data.data
     } else {
       console.error('Fetch request failed with status:', res.status)
-      return null
+      return { id: '', content: '' }
     }
   } catch (error) {
     console.error('An error occured:', error)
-    return null
+    return { id: '', content: '' }
   }
 }
 
