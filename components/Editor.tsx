@@ -30,7 +30,6 @@ const Editor = ({ entry }) => {
     try {
       const data = await updateEntry(entry.id, content)
       setAnalysis(data.analysis)
-      console.log(analysis)
     } catch (error) {
       console.error('Failed to save content', error)
     } finally {
